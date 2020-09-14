@@ -16,7 +16,7 @@ def main() -> None:
             "[%(asctime)s] %(name)s [pid:%(process)d] - %(levelname)s - %(message)s"
         )
         datefmt = "%Y-%m-%d %H:%M:%S"
-        logging.basicConfig(level=logging.DEBUG, format=logformat, datefmt=datefmt)
+        logging.basicConfig(level=logging.INFO, format=logformat, datefmt=datefmt)
 
     args = get_args_from_cli()
     if args.validate:
