@@ -128,7 +128,7 @@ async def create_queue(channel: Channel, queue: Dict[str, Any]) -> Queue:
 async def bind_queue(created_queue: Queue, queue_spec: Dict[str, Any]) -> None:
     """binds a queue to the bindings identified in the doc"""
     logger = logging.getLogger("amqp-dispatcher")
-    logger.debug("Binding queue {0}".format(queue_spec))
+    logger.info("Binding queue {0}".format(queue_spec))
     bindings = queue_spec.get("bindings", [])
 
     name = queue_spec.get("queue")
@@ -160,7 +160,7 @@ def load_module(module_name: str) -> types.ModuleType:
 
 def load_consumer(consumer_str: str) -> Type[DispatcherConsumer]:
     logger = logging.getLogger("amqp-dispatcher")
-    logger.debug("Loading consumer {0}".format(consumer_str))
+    logger.info("Loading consumer {0}".format(consumer_str))
     return load_module_object(consumer_str)
 
 
